@@ -1,0 +1,707 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #000000;
+    color: #fff;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Contenedor principal */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; /* Más espacio entre columnas */
+    padding: 30px; /* Espaciado interior mayor */
+    background-color: #1c1c1c;
+    color: #fff;
+    max-height: none; /* Elimina la restricción de altura */
+}
+
+/* Columnas */
+.column {
+    background-color: #2e2e2e;
+    padding: 20px; /* Más espacio interno */
+    border-radius: 10px;
+    flex: 1;
+    max-width: 48%; /* Aumenta ligeramente el tamaño máximo de las columnas */
+    min-width: 400px; /* Más ancho para pantallas pequeñas */
+    min-height: 175px; /* Altura mínima para dar más espacio a los menús */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.columnexc {
+    background-color: #2e2e2e;
+    padding: 20px; /* Más espacio interno */
+    border-radius: 10px;
+    flex: 1;
+    max-width: 48%; /* Aumenta ligeramente el tamaño máximo de las columnas */
+    min-width: 400px; /* Más ancho para pantallas pequeñas */
+    min-height: 175px; /* Altura mínima para dar más espacio a los menús */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.column h2 {
+    margin-bottom: 0px; /* Elimina el margen superior del título */
+}
+
+.columnexc h2 {
+    margin-bottom: 20px; /* Elimina el margen superior del título */
+}
+
+/* Títulos y elementos dentro de las columnas */
+.column h3, .column p, .column ul, .column button {
+    margin-bottom: 0px;
+}
+
+/* Alinear menús de la segunda columna en horizontal */
+.container .column:nth-child(2) div[style] {
+    display: flex; /* Alinea en fila los elementos */
+    gap: 23px; /* Espacio entre menús */
+    flex-wrap: wrap; /* Permite que los menús se ajusten en líneas nuevas si no caben */
+    justify-content: center; /* Centra horizontalmente los menús */
+    align-items: center; /* Centra verticalmente los menús */
+}
+
+/* Estilo del título con fuego */
+h1 {
+    font-size: 6rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: transparent;
+    position: relative;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(
+        90deg,
+        #ff0000,
+        #ff4500,
+        #ffa500,
+        #ffff00,
+        #ff4500,
+        #ff0000
+    );
+    background-size: 300% 100%;
+    animation: fire-effect 4s linear infinite;
+}
+
+h1::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: linear-gradient(
+        90deg,
+        rgba(255, 0, 0, 0.8),
+        rgba(255, 69, 0, 0.8),
+        rgba(255, 165, 0, 0.8),
+        rgba(255, 255, 0, 0.8),
+        rgba(255, 69, 0, 0.8),
+        rgba(255, 0, 0, 0.8)
+    );
+    filter: blur(8px);
+    background-size: 300% 100%;
+    animation: fire-glow 4s linear infinite;
+}
+
+@keyframes fire-effect {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes fire-glow {
+    0% {
+        background-position: 0% 50%;
+        opacity: 1;
+    }
+    50% {
+        background-position: 100% 50%;
+        opacity: 0.7;
+    }
+    100% {
+        background-position: 0% 50%;
+        opacity: 1;
+    }
+}
+
+/* Otros estilos */
+h2, h3 {
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+p {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+a {
+    color: #ffd700;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #ffdd33;
+}
+
+button {
+    background: #ff4500;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background: #e03e00;
+    transform: scale(1.05);
+}
+
+button:active {
+    background: #c33600;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+html {
+    background: radial-gradient(circle, #ff4500, #ff6347, #8b0000);
+}
+
+button.gradient-border {
+    --border-radius: 15px;
+    --border-width: 4px;
+    appearance: none;
+    position: relative;
+    padding: 1em 2em;
+    border: 0;
+    background-color: #212121;
+    font-family: "Roboto", Arial, "Segoe UI", sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    z-index: 2;
+}
+   
+button.gradient-border::after {
+    --m-i: linear-gradient(#000, #000);
+    --m-o: content-box, padding-box;
+    content: "";
+    position: absolute;
+    left: -0.2em;
+    top: -0.2em;
+    width: 105%;
+    height: 105%;
+    padding: var(--border-width);
+    border-radius: var(--border-radius);
+    background-image: conic-gradient(
+        #ff0000,
+        #ff4500,
+        #ffa500,
+        #ffff00,
+        #ff4500,
+        #ff0000
+    );
+    -webkit-mask-image: var(--m-i), var(--m-i);
+    mask-image: var(--m-i), var(--m-i);
+    -webkit-mask-origin: var(--m-o);
+    mask-origin: var(--m-o);
+    -webkit-mask-clip: var(--m-o);
+    mask-composite: exclude;
+    -webkit-mask-composite: destination-out;
+    filter: hue-rotate(0);
+    animation: rotate-hue linear 4000ms infinite;
+    /*animation-play-state: paused;*/
+}
+   
+button.gradient-border:hover::after {
+    animation-play-state: running;
+}
+   
+@keyframes rotate-hue {
+    to {
+        filter: hue-rotate(1turn);
+    }
+}
+   
+button.gradient-border,
+button.gradient-border::after {
+    box-sizing: border-box;
+}
+   
+button.gradient-border:active {
+    --border-width: 5px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #1c1c1c;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.navbar a {
+    margin-right: 60px; /* Mueve la imagen más a la izquierda */
+    display: flex;
+    align-items: center;
+}
+
+.navbar img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.navbar img:hover {
+    transform: scale(1.1);
+}
+
+
+
+/* From Uiverse.io by Praashoo7 */ 
+.maincard {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+  
+  .upcard {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+  }
+  
+  .downcard {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+  }
+  
+  .card2 span, .card4 span {
+    margin-left: -10px; /* Ajusta el emoji hacia la izquierda */
+    }
+
+
+  .card1 {
+    width: 75px;
+    height: 75px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 90px 5px 5px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+  }
+  
+  .instagram {
+    margin-top: 1.5em;
+    margin-left: 1.2em;
+    fill: #cc39a4;
+  }
+  
+  .card2 {
+    width: 75px;
+    height: 75px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 90px 5px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+  }
+  
+  .twitter {
+    margin-top: 1.5em;
+    margin-left: -.9em;
+    fill: #03A9F4;
+  }
+  
+  .card3 {
+    width: 75px;
+    height: 75px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 5px 5px 90px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+  }
+  
+  .github {
+    margin-top: -.6em;
+    margin-left: 1.2em;
+  }
+  
+  .card4 {
+    width: 75px;
+    height: 75px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 5px 90px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+  }
+  
+  .discord {
+    margin-top: -.9em;
+    margin-left: -1.2em;
+    fill: #8c9eff;
+  }
+  
+  .card1:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #A8DADC;
+  }
+  
+  .card1:hover .instagram {
+    fill: white;
+  }
+  
+  .card2:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #87D9FF;
+  }
+  
+  .card2:hover .twitter {
+    fill: white;
+  }
+  
+  .card3:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #F08080;
+  }
+  
+  .card3:hover .github {
+    fill: white;
+  }
+  
+  .card4:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #a8111d;
+  }
+  
+  .card4:hover .discord {
+    fill: white;
+  }
+
+
+  .maincard2 {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+  
+  .upcard2 {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+  }
+  
+  .downcard2 {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+  }
+  
+  .card22 span, .card42 span {
+    margin-left: -10px; /* Ajusta el emoji hacia la izquierda */
+    }
+
+
+  .card12 {
+    width: 75px;
+    height: 75px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 90px 5px 5px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+  }
+  
+  .instagram2 {
+    margin-top: 1.5em;
+    margin-left: 1.2em;
+    fill: #DCC6E0;
+  }
+  
+  .card22 {
+    width: 75px;
+    height: 75px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 90px 5px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+  }
+  
+  .twitter2 {
+    margin-top: 1.5em;
+    margin-left: -.9em;
+    fill: #03A9F4;
+  }
+  
+  .card32 {
+    width: 75px;
+    height: 75px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 5px 5px 90px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+  }
+  
+  .github2 {
+    margin-top: -.6em;
+    margin-left: 1.2em;
+  }
+  
+  .card42 {
+    width: 75px;
+    height: 75px;
+    outline: none;
+    border: none;
+    background: white;
+    border-radius: 5px 5px 90px 5px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .2s ease-in-out;
+  }
+  
+  .discord2 {
+    margin-top: -.9em;
+    margin-left: -1.2em;
+    fill: #8c9eff;
+  }
+  
+  .card12:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #dd61ff;
+  }
+  
+  .card12:hover .instagram2 {
+    fill: white;
+  }
+  
+  .card22:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #F4FF54;
+  }
+  
+  .card22:hover .twitter2 {
+    fill: white;
+  }
+  
+  .card32:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #88A03E;
+  }
+  
+  .card32:hover .github2 {
+    fill: white;
+  }
+  
+  .card42:hover {
+    cursor: pointer;
+    scale: 1.1;
+    background-color: #A19F9F;
+  }
+  
+  .card42:hover .discord2 {
+    fill: white;
+  }
+
+ 
+.Btn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition-duration: .3s;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
+  background-color: rgb(255, 65, 65);
+  margin-right: 33px;
+}
+
+/* plus sign */
+.sign {
+  position: relative;
+  right: 7px;
+  width: 100%;
+  transition-duration: .5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  margin-right: 33px;
+  transition: opacity 0.1s, width 0.3s;
+}
+
+.sign svg {
+  width: 20px;
+  margin-right: 33px;
+}
+
+.sign svg path {
+  fill: white;
+}
+
+.texto {
+  position: absolute;
+  right: 0%;
+  width: 0%;
+  opacity: 0;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition-duration: .3s;
+  margin-right: 4px;
+}
+/* hover effect on button width */
+.Btn:hover {
+  width: 105px;
+  border-radius: 40px;
+  transition-duration: .3s;
+}
+
+.Btn:hover .sign {
+  width: 0%;
+  transition-duration: .3s;
+  padding-left: 20px;
+  opacity: 0;
+}
+
+.Btn:hover .texto {
+  opacity: 1;
+  width: 70%;
+  transition-duration: .3s;
+  padding-right: 10px;
+}
+/* button click effect*/
+.Btn:active {
+  transform: translate(2px ,2px);
+}
+
+
+
+.card_admin {
+  position: relative;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #444;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 33px;
+}
+
+.card_admin:hover {
+  background-color: #666;
+}
+
+/* Estilo de los tooltips */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltip-content {
+  visibility: hidden;
+  opacity: 0;
+  background-color: #2c3e50;
+  color: #fff;
+  text-align: left;
+  border-radius: 5px;
+  padding: 5px 8px; /* Reducción del padding */
+  font-size: 12px; /* Tamaño de fuente más pequeño */
+  position: absolute;
+  z-index: 999; /* Aseguramos que el tooltip esté por encima de otros elementos */
+  bottom: 100%; /* Tooltip aparece encima del botón */
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px); /* Centrado en el botón y ajustado un poco más arriba */
+  white-space: nowrap; /* Impide el desborde de texto */
+  width: auto; /* Se adapta al contenido */
+  max-width: 200px; /* Ancho máximo ajustado */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra más sutil */
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  border: 1px solid #ccc;
+}
+
+.tooltip:hover .tooltip-content {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(-15px); /* Ajuste al hover para más espacio */
+}
+
+/* Triángulo del tooltip más pequeño */
+.tooltip-content::after {
+  content: '';
+  position: absolute;
+  top: 100%; /* Triángulo debajo del tooltip */
+  left: 50%;
+  margin-left: -6px; /* Centrado */
+  border-width: 6px; /* Triángulo más pequeño */
+  border-style: solid;
+  border-color: #2c3e50 transparent transparent transparent;
+}
